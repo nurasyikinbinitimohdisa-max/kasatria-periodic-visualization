@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kasatria Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: Arial, sans-serif;
+      background: #f2f4f7;
+    }
+    .card {
+      width: 420px;
+      background: #fff;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Sign In With Google</h1>
+
+  <div id="g_id_onload"
+       data-client_id="132012394789-2thu2ncfsmmvfbbihc3i7huh8uh1l5u7.apps.googleusercontent.com"
+       data-callback="onLoginSuccess"
+       data-auto_prompt="false">
+  </div>
+
+  <div class="g_id_signin"
+       data-type="standard"
+       data-size="large">
+  </div>
+</div>
+
+<script>
+  function onLoginSuccess(response) {
+    // simpan token login
+    localStorage.setItem("google_token", response.credential);
+
+    // redirect ke page visualization
+    window.location.href = "periodic.html";
+  }
+</script>
+
+</body>
+</html>
