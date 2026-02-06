@@ -120,13 +120,13 @@
 <script type="module" src="periodic.js"></script>
 
 <script>
-  // 🔓 Login check DISABLED for submission & reviewer access
-  // const token = localStorage.getItem("google_token");
-  // if (!token) {
-  //   window.location.href = "index.html";
-  // }
+  function logout() {
+    localStorage.removeItem("google_token");
+    window.location.href = "index.html";
+  }
 </script>
 
 </body>
 
 </html>
+
